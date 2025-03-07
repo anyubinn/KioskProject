@@ -1,3 +1,5 @@
+package menu;
+
 public class MenuItem {
     String name;
     int price;
