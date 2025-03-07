@@ -20,52 +20,43 @@ public class Kiosk {
         while (true){
             try {
                 KioskOutput.printCategory(menus);
-                int num1 = KioskInput.inputNumber();
-                switch (num1) {
-                    case 1:
-                        KioskOutput.printMenu(menus.get(0).getMenuItems());
-                        chooseMenu(menus.get(0).getMenuItems());
-                        break;
-                    case 2:
-                        KioskOutput.printMenu(menus.get(1).getMenuItems());
-                        chooseMenu(menus.get(1).getMenuItems());
-                        break;
-                    case 3:
-                        KioskOutput.printMenu(menus.get(2).getMenuItems());
-                        chooseMenu(menus.get(2).getMenuItems());
-                        break;
-                    case 0:
-                        System.out.println("프로그램을 종료합니다.");
-                        exit(0);
-                    default:
-                        System.out.println("없는 메뉴입니다. 다시 선택하세요.");
-                }
+                chooseCategory(menus);
             } catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
+    private void chooseCategory(List<Menu> menus) {
+        int num = KioskInput.inputNumber();
+
+        if (num == 0) {
+            System.out.println("프로그램을 종료합니다.");
+            exit(0);
+        }
+
+        if (menus.size() < num) {
+            System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+            return;
+        }
+        Menu menu = menus.get(num - 1);
+        KioskOutput.printMenu(menu.getMenuItems());
+        chooseMenu(menu.getMenuItems());
+    }
+
     private void chooseMenu(List<MenuItem> menuItems) {
         int num = KioskInput.inputNumber();
-        switch (num) {
-            case 1:
-                KioskOutput.printOption(menuItems.get(0).getName(), menuItems.get(0).getPrice());
-                break;
-            case 2:
-                KioskOutput.printOption(menuItems.get(1).getName(), menuItems.get(1).getPrice());
-                break;
-            case 3:
-                KioskOutput.printOption(menuItems.get(2).getName(), menuItems.get(2).getPrice());
-                break;
-            case 4:
-                KioskOutput.printOption(menuItems.get(3).getName(), menuItems.get(3).getPrice());
-                break;
-            case 0:
-                System.out.println("선택을 취소합니다.");
-                break;
-            default:
-                System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+
+        if (num == 0) {
+            System.out.println("선택을 취소합니다.");
+            return;
         }
+
+        if (menuItems.size() < num) {
+            System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+            return;
+        }
+        MenuItem menuItem = menuItems.get(num - 1);
+        KioskOutput.printOption(menuItem.getName(), menuItem.getPrice());
     }
 }
