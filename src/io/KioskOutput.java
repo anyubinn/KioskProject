@@ -10,7 +10,7 @@ public class KioskOutput {
         System.out.println("[ MAIN MENU ]");
         int index = 1;
         for (Menu menu : menus) {
-            System.out.println(index++ + ". " + menu.category);
+            System.out.println(index++ + ". " + menu.getCategory());
         }
         System.out.println("0. 종료 | 종료");
         System.out.print("카테고리를 입력하세요: ");
@@ -20,7 +20,7 @@ public class KioskOutput {
         System.out.println("[ SHAKESHAK MENU ]");
         int index = 1;
         for (MenuItem menuItem : menuItems) {
-            System.out.println(index++ + "." + menuItem.name + " | " + menuItem.price + " | " + menuItem.comment);
+            System.out.println(index++ + "." + menuItem.getName() + " | " + menuItem.getPrice() + " | " + menuItem.getComment());
         }
         System.out.println("0. 뒤로가기 | 뒤로가기");
         System.out.print("메뉴를 선택하세요: ");
