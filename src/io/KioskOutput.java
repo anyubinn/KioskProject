@@ -16,8 +16,8 @@ public class KioskOutput {
         System.out.print("카테고리를 입력하세요: ");
     }
 
-    public static void printMenu(List<MenuItem> menuItems) {
-        System.out.println("[ SHAKESHAK MENU ]");
+    public static void printMenu(String category, List<MenuItem> menuItems) {
+        System.out.println("[ " + category.toUpperCase() +" MENU ]");
         int index = 1;
         for (MenuItem menuItem : menuItems) {
             System.out.println(index++ + "." + menuItem.getName() + " | " + menuItem.getPrice() + " | " + menuItem.getComment());

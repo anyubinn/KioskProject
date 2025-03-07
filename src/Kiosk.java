@@ -40,7 +40,7 @@ public class Kiosk {
             return;
         }
         Menu menu = menus.get(num - 1);
-        KioskOutput.printMenu(menu.getMenuItems());
+        KioskOutput.printMenu(menu.getCategory(), menu.getMenuItems());
         chooseMenu(menu.getMenuItems());
     }
 
