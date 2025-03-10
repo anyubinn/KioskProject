@@ -10,9 +10,11 @@ import menu.MenuItem;
 public class Kiosk {
 
     private List<Menu> menus;
+    private Cart carts;
 
     public Kiosk(List<Menu> menus) {
         this.menus = menus;
+        this.carts = new Cart();
     }
 
     public void start() {
@@ -58,5 +60,17 @@ public class Kiosk {
         }
         MenuItem menuItem = menuItems.get(num - 1);
         KioskOutput.printOption(menuItem.getName(), menuItem.getPrice());
+        addCart(menuItem);
+    }
+
+    private void addCart(MenuItem menuItem) {
+        int num = KioskInput.inputNumber();
+
+        if (num == 2) {
+            System.out.println("선택을 취소합니다.");
+            return;
+        }
+
+        carts.addItem(menuItem);
     }
 }

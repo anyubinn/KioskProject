@@ -28,5 +28,7 @@ public class KioskOutput {
 
     public static void printOption(String menu, int price) {
         System.out.println(menu + "를 선택했습니다. 가격은 " + price + "원입니다.");
+        System.out.println(menu + "를 장바구니에 추가하겠습니까?");
+        System.out.println("1. 확인        2. 취소");
     }
 }
