@@ -8,10 +8,16 @@ public class KioskInput {
 
     public static int inputNumber() {
         try {
-            return sc.nextInt();
+            String input = sc.nextLine().trim();
+            if (input.isEmpty()) {
+                System.out.println("숫자를 입력해주세요.");
+            }
+            return Integer.parseInt(input);
         } catch (InputMismatchException e) {
             sc.nextLine();
             throw new InputMismatchException("숫자만 입력이 가능합니다.");
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("없는 메뉴입니다. 다시 입력하세요.");
         }
     }
 }

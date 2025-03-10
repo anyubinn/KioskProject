@@ -21,7 +21,7 @@ public class Kiosk {
             try {
                 KioskOutput.printCategory(menus);
                 chooseCategory(menus);
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | NumberFormatException e) {
                 System.out.println(e.getMessage());
             }
         }
