@@ -1,5 +1,6 @@
 import static java.lang.System.exit;
 
+import cart.Cart;
 import io.KioskOutput;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -35,6 +36,18 @@ public class Kiosk {
         if (num == 0) {
             System.out.println("프로그램을 종료합니다.");
             exit(0);
+        }
+
+        if (num == 4) {
+            int totalPrice = carts.getTotalPrice();
+            KioskOutput.printAllCarts(carts, totalPrice);
+            return;
+        }
+
+        if (num == 5) {
+            System.out.println("장바구니에 담긴 메뉴를 전부 삭제합니다.");
+            carts.clear();
+            return;
         }
 
         if (menus.size() < num) {
@@ -77,5 +90,6 @@ public class Kiosk {
         }
 
         carts.addItem(menuItem);
+        KioskOutput.printOneCart(menuItem.getName());
     }
 }
