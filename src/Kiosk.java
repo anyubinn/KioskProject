@@ -71,6 +71,11 @@ public class Kiosk {
             return;
         }
 
+        if (num != 1) {
+            System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+            return;
+        }
+
         carts.addItem(menuItem);
     }
 }
