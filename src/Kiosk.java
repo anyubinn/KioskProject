@@ -103,7 +103,7 @@ public class Kiosk {
         int num = KioskInput.inputNumber();
 
         if (num == 1) {
-            caculateDiscountPrice(totalPrice);
+            calculateDiscountPrice(totalPrice);
             carts.clear();
         } else if (num == 2) {
             System.out.println("메뉴판으로 돌아갑니다.");
@@ -112,7 +112,7 @@ public class Kiosk {
         }
     }
 
-    private void caculateDiscountPrice(int totalPrice) {
+    private void calculateDiscountPrice(int totalPrice) {
         KioskOutput.printDiscountInfo();
         int num = KioskInput.inputNumber();
 
