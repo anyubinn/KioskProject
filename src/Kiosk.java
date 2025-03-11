@@ -106,15 +106,20 @@ public class Kiosk {
         KioskOutput.printAllCarts(carts, totalPrice);
         int num = KioskInput.inputNumber();
 
-        if (num == 1) {
-            calculateDiscountPrice(totalPrice);
-            carts.clear();
-        } else if (num == 2) {
-            System.out.println("메뉴판으로 돌아갑니다.");
-        } else if (num == 3) {
-            removeCartItem();
-        } else {
-            System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+        switch (num) {
+            case 1 -> {
+                calculateDiscountPrice(totalPrice);
+                carts.clear();
+            }
+            case 2 -> {
+                System.out.println("메뉴판으로 돌아갑니다.");
+            }
+            case 3 -> {
+                removeCartItem();
+            }
+            default -> {
+                System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+            }
         }
     }
 

@@ -54,7 +54,7 @@ public class KioskOutput {
     }
 
     public static void printTotalPrice(int totalPrice) {
-        System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice + "입니다.");
+        System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice + "원입니다.");
     }
 
     public static void printDiscountInfo() {
