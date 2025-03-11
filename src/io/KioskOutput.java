@@ -44,9 +44,10 @@ public class KioskOutput {
     public static void printAllCarts(Cart carts, int totalPrice) {
         System.out.println("아래와 같이 주문하시겠습니까?");
         System.out.println("[ Orders ]");
-        for (Map.Entry<MenuItem, Integer> cart : carts.getCartItems().entrySet()) {
-            System.out.println(cart.getKey().getName() + " | " + cart.getKey().getPrice() + " | " + cart.getKey().getComment() + " | " + cart.getValue());
-        }
+        carts.getCartItems().entrySet().stream()
+            .map(cart -> String.format("%s | % d | %s | %d", cart.getKey().getName(), cart.getKey().getPrice(),
+                    cart.getKey().getComment(), cart.getValue()))
+            .forEach(System.out::println);
 
         System.out.println("[ Total ]");
         System.out.println(totalPrice);

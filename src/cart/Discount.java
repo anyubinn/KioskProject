@@ -6,8 +6,8 @@ public enum Discount {
     STUDENT("학생", 0.03),
     COMMONER("일반", 0);
 
-    private String discountType;
-    private double discountRate;
+    private final String discountType;
+    private final double discountRate;
 
     Discount(String discountType, double discountRate) {
         this.discountType = discountType;
