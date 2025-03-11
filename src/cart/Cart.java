@@ -32,4 +32,16 @@ public class Cart {
                 .mapToInt(cart -> cart.getKey().getPrice() * cart.getValue())
                 .sum();
     }
+
+    public void removeCartItem(String menuName) {
+        boolean isMenuNameExist = cartItems.entrySet().stream()
+                .anyMatch(cart -> cart.getKey().getName().equals(menuName));
+
+        if (!isMenuNameExist) {
+            System.out.println(menuName + "가 장바구니에 존재하지 않습니다.");
+            return;
+        }
+        cartItems.entrySet().removeIf(cart -> cart.getKey().getName().equals(menuName));
+        System.out.println(menuName + "를 장바구니에서 제거했습니다.");
+    }
 }

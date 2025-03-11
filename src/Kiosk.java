@@ -45,6 +45,10 @@ public class Kiosk {
         }
 
         if (num == 5) {
+            if (carts.isEmpty()) {
+                System.out.println("장바구니에 담긴 메뉴가 없습니다.");
+                return;
+            }
             System.out.println("장바구니에 담긴 메뉴를 전부 삭제합니다.");
             carts.clear();
             return;
@@ -107,6 +111,8 @@ public class Kiosk {
             carts.clear();
         } else if (num == 2) {
             System.out.println("메뉴판으로 돌아갑니다.");
+        } else if (num == 3) {
+            removeCartItem();
         } else {
             System.out.println("없는 메뉴입니다. 다시 선택하세요.");
         }
@@ -137,5 +143,10 @@ public class Kiosk {
         }
 
         KioskOutput.printTotalPrice(totalDiscountPrice);
+    }
+
+    private void removeCartItem() {
+        String menuName = KioskInput.inputMenuName();
+        carts.removeCartItem(menuName);
     }
 }

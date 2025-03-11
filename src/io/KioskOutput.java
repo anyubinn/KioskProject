@@ -51,7 +51,7 @@ public class KioskOutput {
 
         System.out.println("[ Total ]");
         System.out.println(totalPrice);
-        System.out.println("1. 주문      2. 메뉴판");
+        System.out.println("1. 주문      2. 메뉴판      3. 장바구니 메뉴 제거");
     }
 
     public static void printTotalPrice(int totalPrice) {
