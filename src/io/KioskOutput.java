@@ -41,10 +41,6 @@ public class KioskOutput {
     }
 
     public static void printAllCarts(Cart carts, int totalPrice) {
-        if (carts.isEmpty()) {
-            System.out.println("장바구니에 담긴 메뉴가 없습니다. 장바구니를 담아주세요.");
-            return;
-        }
         System.out.println("아래와 같이 주문하시겠습니까?");
         System.out.println("[ Orders ]");
         for (Map.Entry<MenuItem, Integer> cart : carts.getCartItems().entrySet()) {
@@ -54,5 +50,9 @@ public class KioskOutput {
         System.out.println("[ Total ]");
         System.out.println(totalPrice);
         System.out.println("1. 주문      2. 메뉴판");
+    }
+
+    public static void printTotalPrice(int totalPrice) {
+        System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice + "입니다.");
     }
 }

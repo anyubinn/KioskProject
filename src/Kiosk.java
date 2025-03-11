@@ -39,8 +39,7 @@ public class Kiosk {
         }
 
         if (num == 4) {
-            int totalPrice = carts.getTotalPrice();
-            KioskOutput.printAllCarts(carts, totalPrice);
+            purchaseItem();
             return;
         }
 
@@ -91,5 +90,24 @@ public class Kiosk {
 
         carts.addItem(menuItem);
         KioskOutput.printOneCart(menuItem.getName());
+    }
+
+    private void purchaseItem() {
+        int totalPrice = carts.getTotalPrice();
+        if (carts.isEmpty()) {
+            System.out.println("장바구니에 담긴 메뉴가 없습니다. 장바구니를 담아주세요.");
+            return;
+        }
+        KioskOutput.printAllCarts(carts, totalPrice);
+        int num = KioskInput.inputNumber();
+
+        if (num == 1) {
+            KioskOutput.printTotalPrice(totalPrice);
+            carts.clear();
+        } else if (num == 2) {
+            System.out.println("메뉴판으로 돌아갑니다.");
+        } else {
+            System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+        }
     }
 }
