@@ -1,6 +1,7 @@
 package io;
 
 import cart.Cart;
+import cart.Discount;
 import java.util.List;
 import java.util.Map;
 import menu.Menu;
@@ -54,5 +55,13 @@ public class KioskOutput {
 
     public static void printTotalPrice(int totalPrice) {
         System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice + "입니다.");
+    }
+
+    public static void printDiscountInfo() {
+        System.out.println("할인 정보를 입력해주세요.");
+        int index = 1;
+        for (Discount discount : Discount.values()) {
+            System.out.println(index++ + ". " + discount.getDiscountType() + " : " + discount.getDiscountRate() + "%");
+        }
     }
 }

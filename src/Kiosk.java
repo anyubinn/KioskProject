@@ -1,6 +1,7 @@
 import static java.lang.System.exit;
 
 import cart.Cart;
+import cart.Discount;
 import io.KioskOutput;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -102,12 +103,39 @@ public class Kiosk {
         int num = KioskInput.inputNumber();
 
         if (num == 1) {
-            KioskOutput.printTotalPrice(totalPrice);
+            caculateDiscountPrice(totalPrice);
             carts.clear();
         } else if (num == 2) {
             System.out.println("메뉴판으로 돌아갑니다.");
         } else {
             System.out.println("없는 메뉴입니다. 다시 선택하세요.");
         }
+    }
+
+    private void caculateDiscountPrice(int totalPrice) {
+        KioskOutput.printDiscountInfo();
+        int num = KioskInput.inputNumber();
+
+        int totalDiscountPrice = 0;
+
+        switch (num) {
+            case 1 -> {
+                totalDiscountPrice = Discount.PATRIOT.getTotalDiscountPrice(totalPrice);
+            }
+            case 2 -> {
+                totalDiscountPrice = Discount.SOLDIER.getTotalDiscountPrice(totalPrice);
+            }
+            case 3 -> {
+                totalDiscountPrice = Discount.STUDENT.getTotalDiscountPrice(totalPrice);
+            }
+            case 4 -> {
+                totalDiscountPrice = Discount.COMMONER.getTotalDiscountPrice(totalPrice);
+            }
+            default -> {
+                System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+            }
+        }
+
+        KioskOutput.printTotalPrice(totalDiscountPrice);
     }
 }
