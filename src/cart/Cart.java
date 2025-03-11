@@ -28,11 +28,8 @@ public class Cart {
     }
 
     public int getTotalPrice() {
-        int totalPrice = 0;
-        for (Map.Entry<MenuItem, Integer> cart : cartItems.entrySet()) {
-            totalPrice += cart.getKey().getPrice() * cart.getValue();
-        }
-
-        return totalPrice;
+        return cartItems.entrySet().stream()
+                .mapToInt(cart -> cart.getKey().getPrice() * cart.getValue())
+                .sum();
     }
 }
