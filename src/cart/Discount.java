@@ -1,7 +1,7 @@
 package cart;
 
 /**
- * 할인 정보를 관리하는 enum 클래스
+ * 할인 정보를 관리하는 enum 클래스이다.
  */
 public enum Discount {
     PATRIOT("국가유공자", 0.1),
