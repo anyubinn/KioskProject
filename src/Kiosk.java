@@ -150,8 +150,6 @@ public class Kiosk {
             case 1 -> {
                 // 할인 정보 계산
                 calculateDiscountPrice(totalPrice);
-                // 장바구니 비우기
-                carts.clear();
             }
             case 2 -> {
                 System.out.println("메뉴판으로 돌아갑니다.");
@@ -175,6 +173,7 @@ public class Kiosk {
         // 할인 대상에 해당하는지 선택
         KioskOutput.printDiscountInfo();
         int num = KioskInput.inputNumber();
+        boolean isValidNumber = true;
 
         int totalDiscountPrice = 0;
 
@@ -193,11 +192,17 @@ public class Kiosk {
             }
             default -> {
                 System.out.println("없는 메뉴입니다. 다시 선택하세요.");
+                isValidNumber = false;
             }
         }
 
-        // 할인 적용 후 최종 금액 출력
-        KioskOutput.printTotalPrice(totalDiscountPrice);
+        // 유효한 번호를 입력한 경우
+        if (isValidNumber) {
+            // 할인 적용 후 최종 금액 출력
+            KioskOutput.printTotalPrice(totalDiscountPrice);
+            // 장바구니 비우기
+            carts.clear();
+        }
     }
 
     /**
