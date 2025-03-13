@@ -27,7 +27,7 @@ public class KioskInput {
             sc.nextLine();
             throw new InputMismatchException("숫자만 입력이 가능합니다.");
         } catch (NumberFormatException e) {
-            throw new NumberFormatException("없는 메뉴입니다. 다시 입력하세요.");
+            throw new NumberFormatException("하나의 숫자를 입력하세요.");
         }
     }
 
